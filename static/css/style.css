@@ -2147,3 +2147,34 @@ textarea.input {
     margin-top: 10px;
   }
 }
+
+.product-image {
+    width: 100%; /* Eni konteynerga mos bo'ladi */
+    height: 250px; /* Barcha rasmlar 250px balandlikda bo'ladi */
+    object-fit: contain; /* Rasmni butunlay sig‘diradi, lekin maydonni to‘ldirmaydi */
+    background-color: white; /* Agar rasm kichik bo‘lsa, oq fon qo‘shiladi */
+    padding: 10px; /* Rasmlar bir-biriga yopishib qolmasligi uchun */
+    border-radius: 10px; /* Dizayn chiroyli chiqishi uchun */
+}
+
+.shop-link {
+    color: white !important; /* Oq rang */
+    text-decoration: none; /* Chiziqsiz */
+    font-weight: bold; /* Qalin matn */
+    transition: color 0.3s ease-in-out; /* Silliq o‘tish */
+}
+
+.shop-link:hover {
+    color: black !important; /* Hover bo‘lganda qora rangga o‘zgaradi */
+}
+
+
+.product-label span {
+    background-color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
