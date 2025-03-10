@@ -871,7 +871,7 @@ textarea.input {
 }
 
 .product .product-img .product-label {
-  position: absolute;
+
   top: 15px;
   right: 15px;
 }
@@ -2149,8 +2149,8 @@ textarea.input {
 }
 
 .product-image {
-    width: 100%; /* Eni konteynerga mos bo'ladi */
-    height: 250px; /* Barcha rasmlar 250px balandlikda bo'ladi */
+    width: 90%; /* Eni konteynerga mos bo'ladi */
+    height: 200px; /* Barcha rasmlar 250px balandlikda bo'ladi */
     object-fit: contain; /* Rasmni butunlay sig‘diradi, lekin maydonni to‘ldirmaydi */
     background-color: white; /* Agar rasm kichik bo‘lsa, oq fon qo‘shiladi */
     padding: 10px; /* Rasmlar bir-biriga yopishib qolmasligi uchun */

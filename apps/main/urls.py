@@ -4,10 +4,10 @@ from .views import (
     index,
 )
 
-app_name = 'hospital'
+app_name = 'main'
 
 urlpatterns = [
     # **Region URLs**
-    path('home', Home.as_view(), name='home'),
+    path('home/', Home.as_view(), name='home'),
     path('', index, name='index'),
 ]

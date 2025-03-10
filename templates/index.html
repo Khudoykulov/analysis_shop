@@ -51,7 +51,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="{{ laptop.Image_URL }}" alt="Laptop Image" class="product-image">
+
                                         <div class="product-label">
                                             {% if laptop.Discount != 0 %}
                                             <span style="color: green;">-{{ laptop.Discount }}%</span>
@@ -60,6 +60,7 @@
     <a href="https://{{ laptop.shop_name }}" target="_blank" class="shop-link">{{ laptop.shop_name|slice:"20" }}</a>
 </span>
                                         </div>
+                                        <img src="{{ laptop.Image_URL }}" alt="Laptop Image" class="product-image">
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">{{ laptop.Category }}</p>

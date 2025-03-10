@@ -34,4 +34,4 @@ def index(request):
 
 # Create your views here.
 class Home(TemplateView):
-    template_name = 'index.html'
+    template_name = 'login.html'
