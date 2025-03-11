@@ -3,6 +3,45 @@
 
 {% block content %}
 
+<div id="header">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- LOGO -->
+                <div class="col-md-3">
+                    <div class="header-logo">
+                        <a href="." class="logo">
+<!--                            <img src="media/img/logo.png" alt="Logo">-->
+                        </a>
+                    </div>
+                </div>
+                <!-- /LOGO -->
+
+                <!-- SEARCH BAR -->
+               <div class="col-md-6">
+                <div class="header-search">
+                    <form method="GET" action="">
+                        <select class="input-select" name="category">
+                            {% for category in categories %}
+                            <option value="{{ category }}" {% if selected_category == category %}selected{% endif %}>
+                                {{ category }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <input class="input" name="search" placeholder="Search here" value="{{ search_query }}">
+                        <button class="search-btn" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+                <!-- /SEARCH BAR -->
+
+
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </div>
 
 <!-- New Products -->
 <div class="section">
@@ -28,7 +67,7 @@
                         <!-- tab -->
                         <div id="" class="tab-pane active">
                             <div class="products-slick" data-nav="#slick-nav-1">
-                                {% for laptop in laptops|slice:":8" %}  <!-- Limit to 8 products -->
+                                {% for laptop in page_obj %}
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
@@ -97,13 +136,49 @@
 <!-- /SECTION -->
 
 
+<!-- Pagination -->
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" class="btn">Oldingi 8 ta</a>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="btn">Keyingi 8 ta</a>
+    {% endif %}
+</div>
 
+<!-- CSS -->
+<style>
+    .products-slick {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
 
+    .product {
+        width: 23%;
+        margin: 1%;
+    }
 
+    .pagination {
+        text-align: center;
+        margin: 20px 0;
+    }
 
+    .pagination .btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+    }
 
-
-
+    .pagination .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
 
 
 <!-- SECTION -->

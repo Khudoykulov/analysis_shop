@@ -29,12 +29,44 @@ def index(request):
             laptop['Final_Price'] = laptop['Price'] - (laptop['Price'] * laptop['Discount'] / 100)
         else:
             laptop['Final_Price'] = laptop['Price']
-        # Set up pagination (10 items per page)
-    # paginator = Paginator(laptops, 10)  # 10 laptops per page
-    # page_number = request.GET.get('page')  # Get the page number from the URL (e.g., ?page=2)
-    # page_obj = paginator.get_page(page_number)
+            # Qidiruv so‘rovini olish
+    search_query = request.GET.get('search', '').strip().lower()
+    selected_category = request.GET.get('category', 'All Categories')
 
-    return render(request, 'index.html', {'laptops': laptops})
+    # Qidiruv bo‘yicha filtr
+    filtered_laptops = laptops
+    if search_query:
+        filtered_laptops = [
+            laptop for laptop in laptops
+            if (search_query in laptop['Name'].lower() or
+                search_query in str(laptop.get('Category', '')).lower())
+        ]
+
+
+    # Category bo‘yicha filtr
+    if selected_category != 'All Categories':
+        filtered_laptops = [
+            laptop for laptop in filtered_laptops
+            if str(laptop.get('Category', '')) == selected_category
+        ]
+    filtered_laptops = sorted(filtered_laptops, key=lambda x: x['Final_Price'], reverse=False)
+    # Pagination
+    paginator = Paginator(filtered_laptops, 8)  # Har sahifada 8 ta mahsulot
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    # Kategoriyalarni olish (dropdown uchun)
+    categories = list(set(laptop.get('Category', '') for laptop in laptops))
+    categories = ['All Categories'] + sorted(categories)
+
+    return render(request, 'index.html', {
+        'laptops': page_obj.object_list,
+        'paginator': paginator,
+        'page_obj': page_obj,
+        'categories': categories,
+        'selected_category': selected_category,
+        'search_query': search_query
+    })
 
 
 # Create your views here.
@@ -68,4 +100,3 @@ def product_detail(request):
         "price_dates": price_history["dates"],
         "price_values": price_history["values"]
     })
-
