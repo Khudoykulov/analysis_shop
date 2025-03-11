@@ -23,7 +23,7 @@ def index(request):
     df.rename(columns={'Image URL': 'Image_URL'}, inplace=True)
     df['shop_name'] = df['Website'].apply(
         lambda x: x.split('/')[2] if isinstance(x, str) and len(x.split('/')) > 2 else '')
-    laptops = df.head(24).to_dict(orient='records')
+    laptops = df.to_dict(orient='records')
     for laptop in laptops:
         if laptop['Discount'] > 0:
             laptop['Final_Price'] = laptop['Price'] - (laptop['Price'] * laptop['Discount'] / 100)

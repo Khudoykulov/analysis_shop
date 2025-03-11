@@ -86,11 +86,11 @@
                                         <h3 class="product-name"><a href="#">{{ laptop.Name|slice:"35" }}...</a></h3>
                                         <h4 class="product-price">
                                             {% if laptop.Discount != 0 %}
-                                            ${{ laptop.Final_Price }}
-                                            <del style="color: red;">${{ laptop.Price }}</del>
+                                            ${{ laptop.Final_Price|floatformat:2 }}
+                                            <del style="color: red;">${{ laptop.Price|floatformat:2 }}</del>
                                             <br>
                                             {% else %}
-                                            ${{ laptop.Price }}
+                                            ${{ laptop.Price|floatformat:2 }}
                                             {% endif %}
                                         </h4>
                                         <div class="product-price">
