@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-form {
+            flex: 1;
+            padding: 40px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .welcome-section {
+            flex: 1;
+            background-color: #ff4d4d;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            width: 100%;
+        }
+        .btn-yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .btn-no {
+            background-color: #ccc;
+            color: black;
+        }
+        .btn-yes:hover {
+            background-color: #e60000;
+        }
+        .btn-no:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>Logout</h2>
+            <p>Siz rostdan ham chiqmoqchimisiz?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" name="confirm_logout" class="btn btn-yes">Ha</button>
+<button type="button" class="btn btn-no" onclick="window.location.href='{% url 'main:index' %}'">Yo‘q</button>            </form>
+        </div>
+        <div class="welcome-section">
+            <h2>Goodbye!</h2>
+            <p>Iltimos, qaytib keling!</p>
+        </div>
+    </div>
+</body>
+</html>
