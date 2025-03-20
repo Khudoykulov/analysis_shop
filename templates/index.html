@@ -73,7 +73,7 @@
                                     <div class="product-img">
                                         <div class="product-label">
                                             {% if laptop.Discount != 0 %}
-                                            <span style="color: green;">-{{ laptop.Discount }}%</span>
+                                            <span style="color: green;">-{{ laptop.Discount|floatformat:2 }}%</span>
                                             {% endif %}
                                             <span class="new">
                         <a href="https://{{ laptop.shop_name }}" target="_blank" class="shop-link">{{ laptop.shop_name|slice:"20" }}</a>
@@ -95,7 +95,7 @@
                                         </h4>
                                         <div class="product-price">
                                             {% if laptop.Discount != 0 %}
-                                            <span style="color: green;">(-{{ laptop.Discount }}%)</span>
+                                            <span style="color: green;">(-{{ laptop.Discount|floatformat:2 }}%)</span>
                                             {% endif %}
                                         </div>
                                         <div class="product-btns">

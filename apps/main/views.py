@@ -14,7 +14,7 @@ from django.conf import settings
 
 
 def index(request):
-    file_path = os.path.join(settings.BASE_DIR, 'data', 'laptop.csv')
+    file_path = os.path.join(settings.BASE_DIR, 'data', 'data.csv')
 
     # CSV faylni Pandas bilan o'qish
     df = pd.read_csv(file_path, encoding='utf-8')
