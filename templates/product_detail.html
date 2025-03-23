@@ -233,49 +233,53 @@ h3 {
     font-size: 0.9em;
 }
 </style>
-    <body class="detail_body">
-    <div class="main_wrapper">
-        <!-- Product Overview Section -->
-        <!-- Product Overview Section -->
-<div class="item_summary">
-    <div class="item_image_box">
-        <img src="https://via.placeholder.com/150" alt="Product Image">
-    </div>
-    <div class="item_info_block">
-        <h1>YITAHOME NSF Stainless Steel Table, 30" X 24" Work Table with Wheels, 2 Shelves Metal Prep Worktable for Home Kitchen Restaurant Garage Warehouse Outdoor</h1>
-        <div class="price_section">
-            <span class="current_price_tag">$82.43</span>
-            <span class="best_price_label">Best Price</span>
+<body class="detail_body">
+<div class="main_wrapper">
+    <!-- Product Overview Section -->
+    <!-- Product Overview Section -->
+    <div class="item_summary">
+        <div class="item_image_box">
+            <img src="{{ object.Image_URL }}" alt="Product Image">
         </div>
-        <p class="price_timestamp">Amazon Price as of Mar 20, 2025 12:40 AM</p>
-        <div class="stock_status">Out of Stock</div>
-        <div class="third_party_price">
-            <span class="third_party_price_label">3rd Party New Price</span>
-            <span class="third_party_price_value">$77.49</span>
+        <div class="item_info_block">
+            <h1>{{object.Name}}</h1>
+            <div class="price_section">
+                <span class="current_price_tag">${{ object.discounted_price|floatformat:2 }}</span>
+                <span class="best_price_label">{{object.Discount|floatformat:2}}% chegirma</span>
+            </div>
+            <!--        <p class="price_timestamp">Amazon Price as of Mar 20, 2025 12:40 AM</p>-->
+            <div class="stock_status">Sotuvda {{object.Sold_count}} ta bor</div>
+            <div class="third_party_price">
+                <span class="third_party_price_label"> Narx: </span>
+                <span class="third_party_price_value">${{ object.Price|floatformat:2 }}</span>
+            </div>
+            <!--        <p class="third_party_timestamp">as of Mar 18, 2025 06:28 PM</p>-->
+            <div class="item_metadata">
+                <p><strong>BRAND:</strong> {{object.Brand}}</p>
+                <p><strong>Model:</strong> {{object.Model}}</p>
+                <p><strong>Manufacturer:</strong> {{object.shop_name}}</p>
+                <!--            <p><strong>EAN:</strong> 084033234236</p>-->
+                <!--            <p><strong>Product group:</strong> Lawn & Patio</p>-->
+                <p><strong>Category:</strong> {{object.Category}}</p>
+                <p><strong>Description:</strong> {{object.Description}}</p>
+            </div>
+            <a href="{{ object.Website }}" class="view_amazon_link" target="_blank" rel="noopener noreferrer">
+                View at Web-Site
+            </a>
         </div>
-        <p class="third_party_timestamp">as of Mar 18, 2025 06:28 PM</p>
-        <div class="item_metadata">
-            <p><strong>ASIN:</strong> B0CBQ2FN1G</p>
-            <p><strong>UPC:</strong> 840332342368</p>
-            <p><strong>EAN:</strong> 084033234236</p>
-            <p><strong>Product group:</strong> Lawn & Patio</p>
-            <p><strong>Category:</strong> Kitchen</p>
-            <p><strong>Manufacturer:</strong> YITAHOME</p>
-            <p><strong>Model:</strong> MAYIHWkUtn</p>
+        <div class="price_alert_box">
+            <h3>Nimadir qushish kerak shu joyga</h3>
+            <p>We'll notify you when the price drops to your desired price.</p>
+            <button class="add_price_alert_btn">+ hali aniqmas</button>
         </div>
-        <a href="#" class="view_amazon_link">View at Amazon</a>
     </div>
-    <div class="price_alert_box">
-        <h3>Your Amazon Price Watches</h3>
-        <p>We'll notify you when the price drops to your desired price.</p>
-        <button class="add_price_alert_btn">+ Add Amazon Price Watch</button>
-    </div>
-</div>
 
-        <!-- Price History Section -->
+    <!-- Price History Section -->
         <div class="price_tracker">
             <h2>Amazon Price History</h2>
-            <p>This is our record of Amazon price changes for YITAHOME NSF Stainless Steel Table, 30" X 24" Work Table with Wheels, 2 Shelves Metal Prep Worktable for Home Kitchen Restaurant Garage Warehouse Outdoor (B0CBQ2FN1G) since Nov 20, 2023.</p>
+            <p>This is our record of Amazon price changes for YITAHOME NSF Stainless Steel Table, 30" X 24" Work Table with
+                Wheels, 2 Shelves Metal Prep Worktable for Home Kitchen Restaurant Garage Warehouse Outdoor (B0CBQ2FN1G)
+                since Nov 20, 2023.</p>
             <div class="time_tabs">
                 <button class="time_tab active" data-tab="1-month">1 Month</button>
                 <button class="time_tab" data-tab="3-month">3 Months</button>
@@ -294,80 +298,72 @@ h3 {
             </div>
         </div>
 
-        <!-- Product Details Section -->
-        <div class="item_specs">
-            <h2>Product Details</h2>
-            <div class="specs_list">
-                <div class="spec_row">
-                    <span class="spec_label">Product group</span>
-                    <span class="spec_value">Lawn & Patio</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">Category</span>
-                    <span class="spec_value">Kitchen</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">Manufacturer</span>
-                    <span class="spec_value">YITAHOME</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">Model</span>
-                    <span class="spec_value">MAYIHWkUtn</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">Locale</span>
-                    <span class="spec_value">US</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">List price</span>
-                    <span class="spec_value">$99.00</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">EAN</span>
-                    <span class="spec_value">084033234236</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">UPC</span>
-                    <span class="spec_value">840332342368</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">SKU</span>
-                    <span class="spec_value">B0CBQ2FN1G</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">Last update scan</span>
-                    <span class="spec_value">3 hours ago</span>
-                </div>
-                <div class="spec_row">
-                    <span class="spec_label">Last tracked</span>
-                    <span class="spec_value">1 month ago</span>
-                </div>
+    <!-- Product Details Section -->
+    <div class="item_specs">
+        <h2>Product Details</h2>
+        <div class="specs_list">
+            <div class="spec_row">
+                <span class="spec_label">Category</span>
+                <span class="spec_value">{{object.Category}}</span>
             </div>
+            <div class="spec_row">
+                <span class="spec_label">Web-Site:</span>
+                <span class="spec_value">{{object.shop_name}}</span>
+            </div>
+            <div class="spec_row">
+                <span class="spec_label">Model:</span>
+                <span class="spec_value">{{object.Model}}</span>
+            </div>
+            <div class="spec_row">
+                <span class="spec_label">Brand:</span>
+                <span class="spec_value">{{object.Brand}}</span>
+            </div>
+            <div class="spec_row">
+                <span class="spec_label">Narx:</span>
+                <span class="spec_value">${{object.Price|floatformat:2}}</span>
+            </div>
+            <div class="spec_row">
+                <span class="spec_label">Chegirma:</span>
+                <span class="spec_value">{{object.Discount|floatformat:2}}%</span>
+            </div>
+            <div class="spec_row">
+                <span class="spec_label">Chegirmadagi narxi:</span>
+                <span class="spec_value">${{object.discounted_price|floatformat:2}}</span>
+            </div>
+<!--            <div class="spec_row">-->
+<!--                <span class="spec_label">Last update scan</span>-->
+<!--                <span class="spec_value">3 hours ago</span>-->
+<!--            </div>-->
+<!--            <div class="spec_row">-->
+<!--                <span class="spec_label">Last tracked</span>-->
+<!--                <span class="spec_value">1 month ago</span>-->
+<!--            </div>-->
         </div>
     </div>
-    <script>
-        // script.js
+</div>
+<script>
+    // script.js
 document.querySelectorAll('.time_tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        // Remove active class from all tabs
-        document.querySelectorAll('.time_tab').forEach(t => t.classList.remove('active'));
-        // Add active class to clicked tab
-        tab.classList.add('active');
+tab.addEventListener('click', () => {
+    // Remove active class from all tabs
+    document.querySelectorAll('.time_tab').forEach(t => t.classList.remove('active'));
+    // Add active class to clicked tab
+    tab.classList.add('active');
 
-        // Placeholder for updating the price chart based on the selected tab
-        const tabName = tab.getAttribute('data-tab');
-        console.log(`Switching to ${tabName} price history`);
+    // Placeholder for updating the price chart based on the selected tab
+    const tabName = tab.getAttribute('data-tab');
+    console.log(`Switching to ${tabName} price history`);
 
-        // You can update the price chart here (e.g., using Chart.js)
-        // For now, we'll just log the tab change
-    });
+    // You can update the price chart here (e.g., using Chart.js)
+    // For now, we'll just log the tab change
+});
 });
 
 // Optional: Add interactivity for the "Add Amazon Price Watch" button
 document.querySelector('.add_price_alert_btn').addEventListener('click', () => {
-    alert('Price watch added! You will be notified when the price drops.');
+alert('Price watch added! You will be notified when the price drops.');
 });
-    </script>
+</script>
 </body>
 
 

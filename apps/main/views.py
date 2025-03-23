@@ -42,7 +42,6 @@ def index(request):
                 search_query in str(laptop.get('Category', '')).lower())
         ]
 
-
     # Category bo‘yicha filtr
     if selected_category != 'All Categories':
         filtered_laptops = [
@@ -74,29 +73,29 @@ class Home(TemplateView):
     template_name = 'login.html'
 
 
-from django.shortcuts import render
-from datetime import datetime
+def product_detail(request, pk):
+    file_path = os.path.join(settings.BASE_DIR, 'data', 'data.csv')
 
+    # CSV faylni Pandas bilan o'qish
+    df = pd.read_csv(file_path, encoding='utf-8')
 
-def product_detail(request):
-    product = {
-        "name": "VASAGLE Storage Chest",
-        "image_url": "https://via.placeholder.com/400",
-        "asin": "B0BWYM5PQQ",
-        "manufacturer": "VASAGLE",
-        "model": "ULSB062T14",
-        "category": "Furniture",
-        "price": 65.99,
-        "last_updated": datetime.now().strftime("%b %d, %Y %I:%M %p"),
-        "amazon_url": "https://www.amazon.com/dp/B0BWYM5PQQ"
+    # DataFrame'dan berilgan pk (ID) ga mos keladigan qatorni topish
+    try:
+        # Agar CSV faylda 'id' ustuni bo'lsa va pk int sifatida kelayotgan bo'lsa
+        object_data = df[df['id'] == int(pk)].iloc[0].to_dict()
+        object_data['shop_name'] = (
+            object_data['Website'].split('/')[2]
+            if isinstance(object_data['Website'], str) and len(object_data['Website'].split('/')) > 2
+            else ''
+        )
+        original_price = object_data['Price']
+        discount = object_data['Discount']  # Chegirma foizi (masalan, 66.67)
+        discounted_price = original_price * (1 - discount / 100)  # Chegirmadan keyingi narx
+        object_data['discounted_price'] = discounted_price  # Yangi narxni qo'shamiz
+    except (IndexError, KeyError, ValueError):
+        return render(request, '404.html', {'error': 'Product not found'})
+
+    context = {
+        'object': object_data
     }
-    price_history = {
-        "dates": ["2025-01-01", "2025-02-01", "2025-03-01"],
-        "values": [75, 70, 65.99]
-    }
-
-    return render(request, 'product_detail.html', {
-        "product": product,
-        "price_dates": price_history["dates"],
-        "price_values": price_history["values"]
-    })
+    return render(request, 'product_detail.html', context)

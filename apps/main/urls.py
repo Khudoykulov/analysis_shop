@@ -11,6 +11,6 @@ urlpatterns = [
     # **Region URLs**
     path('login/', Home.as_view(), name='home'),
     path('', index, name='index'),
-    path('product/', product_detail, name='product_detail'),
+    path('product/<int:pk>/', product_detail, name='product_detail'),
 
 ]
