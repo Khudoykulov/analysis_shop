@@ -232,6 +232,113 @@ h3 {
     color: #666;
     font-size: 0.9em;
 }
+
+
+
+
+
+
+
+
+
+.highlighted-deals {
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .highlighted-deals h2 {
+        font-size: 24px;
+        color: #1a73e8;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .deals-container {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .deal-card {
+        position: relative;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 220px;
+        text-align: center;
+        padding: 15px;
+        flex: 0 0 auto;
+    }
+
+    .deal-label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #28a745;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .deal-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .deal-info {
+        margin-top: 10px;
+    }
+
+    .deal-name {
+        font-size: 14px;
+        color: #333;
+        margin: 10px 0;
+        line-height: 1.4;
+    }
+
+    .deal-price {
+        font-size: 16px;
+        color: #e67e22;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+
+    .deal-avg-price {
+        font-size: 12px;
+        color: #777;
+        margin: 5px 0;
+    }
+
+    .deal-button {
+        display: inline-block;
+        background: #f0c14b;
+        color: #111;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: background 0.3s;
+    }
+
+    .deal-button:hover {
+        background: #e0b33a;
+    }
+
+    /* Scrollbar styling (agar kerak bo'lsa) */
+    .deals-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .deals-container::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+    }
 </style>
 <body class="detail_body">
 <div class="main_wrapper">
@@ -275,28 +382,28 @@ h3 {
     </div>
 
     <!-- Price History Section -->
-        <div class="price_tracker">
-            <h2>Amazon Price History</h2>
-            <p>This is our record of Amazon price changes for YITAHOME NSF Stainless Steel Table, 30" X 24" Work Table with
-                Wheels, 2 Shelves Metal Prep Worktable for Home Kitchen Restaurant Garage Warehouse Outdoor (B0CBQ2FN1G)
-                since Nov 20, 2023.</p>
-            <div class="time_tabs">
-                <button class="time_tab active" data-tab="1-month">1 Month</button>
-                <button class="time_tab" data-tab="3-month">3 Months</button>
-                <button class="time_tab" data-tab="6-month">6 Months</button>
-                <button class="time_tab" data-tab="1-year">1 Year</button>
-                <button class="time_tab" data-tab="all">All</button>
-            </div>
-            <div class="price_filters">
-                <label><input type="checkbox" checked> Amazon</label>
-                <label><input type="checkbox"> New</label>
-                <label><input type="checkbox"> Used</label>
-            </div>
-            <div class="price_graph">
-                <!-- Placeholder for price chart -->
-                <p>Price chart will be displayed here (e.g., using a library like Chart.js).</p>
-            </div>
+    <div class="price_tracker">
+        <h2>Amazon Price History</h2>
+        <p>This is our record of Amazon price changes for YITAHOME NSF Stainless Steel Table, 30" X 24" Work Table with
+            Wheels, 2 Shelves Metal Prep Worktable for Home Kitchen Restaurant Garage Warehouse Outdoor (B0CBQ2FN1G)
+            since Nov 20, 2023.</p>
+        <div class="time_tabs">
+            <button class="time_tab active" data-tab="1-month">1 Month</button>
+            <button class="time_tab" data-tab="3-month">3 Months</button>
+            <button class="time_tab" data-tab="6-month">6 Months</button>
+            <button class="time_tab" data-tab="1-year">1 Year</button>
+            <button class="time_tab" data-tab="all">All</button>
         </div>
+        <div class="price_filters">
+            <label><input type="checkbox" checked> Amazon</label>
+            <label><input type="checkbox"> New</label>
+            <label><input type="checkbox"> Used</label>
+        </div>
+        <div class="price_graph">
+            <!-- Placeholder for price chart -->
+            <p>Price chart will be displayed here (e.g., using a library like Chart.js).</p>
+        </div>
+    </div>
 
     <!-- Product Details Section -->
     <div class="item_specs">
@@ -330,16 +437,41 @@ h3 {
                 <span class="spec_label">Chegirmadagi narxi:</span>
                 <span class="spec_value">${{object.discounted_price|floatformat:2}}</span>
             </div>
-<!--            <div class="spec_row">-->
-<!--                <span class="spec_label">Last update scan</span>-->
-<!--                <span class="spec_value">3 hours ago</span>-->
-<!--            </div>-->
-<!--            <div class="spec_row">-->
-<!--                <span class="spec_label">Last tracked</span>-->
-<!--                <span class="spec_value">1 month ago</span>-->
-<!--            </div>-->
+            <!--            <div class="spec_row">-->
+            <!--                <span class="spec_label">Last update scan</span>-->
+            <!--                <span class="spec_value">3 hours ago</span>-->
+            <!--            </div>-->
+            <!--            <div class="spec_row">-->
+            <!--                <span class="spec_label">Last tracked</span>-->
+            <!--                <span class="spec_value">1 month ago</span>-->
+            <!--            </div>-->
         </div>
     </div>
+
+    <div class="highlighted-deals">
+        <h2>Highlighted Deals</h2>
+        <div class="deals-container">
+            {% for product in related_products %}
+            <div class="deal-card">
+                {% if product.label %}
+                <span class="deal-label">{{ product.label }}</span>
+                {% endif %}
+                <div class="deal-image">
+                    <img src="{{ product.Image_URL }}" alt="{{ product.Name }}">
+                </div>
+                <div class="deal-info">
+                    <h3 class="deal-name">{{ product.Name|slice:":50" }}</h3>
+                    <p class="deal-price">${{ product.Price|floatformat:2 }}</p>
+                    <p class="deal-avg-price">AVG: ${{ product.Avg_Price|floatformat:2 }}</p>
+                    <a href="{{ product.Website }}" target="_blank" class="deal-button">View at Amazon</a>
+                </div>
+            </div>
+            {% empty %}
+            <p>No highlighted deals available.</p>
+            {% endfor %}
+        </div>
+    </div>
+
 </div>
 <script>
     // script.js

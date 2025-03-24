@@ -92,10 +92,24 @@ def product_detail(request, pk):
         discount = object_data['Discount']  # Chegirma foizi (masalan, 66.67)
         discounted_price = original_price * (1 - discount / 100)  # Chegirmadan keyingi narx
         object_data['discounted_price'] = discounted_price  # Yangi narxni qo'shamiz
+
+        # Joriy mahsulotning kategoriyasiga mos boshqa 5 ta mahsulotni tanlash
+        category = object_data.get('Category')
+        if category:
+            # Joriy mahsulotni (id == pk) chiqarib tashlab, shu kategoriyadagi boshqa mahsulotlarni olish
+            highlighted_products = df[
+                (df['Category'] == category) & (df['id'] != int(pk))
+                ].head(5).to_dict('records')  # 5 ta mahsulot
+            # Har bir mahsulot uchun o'rtacha narxni hisoblash (masalan)
+            for product in highlighted_products:
+                product['Avg_Price'] = product['Price'] * 1.3  # O'rtacha narx (masalan)
+        else:
+            highlighted_products = []  # Agar kategoriya bo'lmasa, bo'sh ro'yxat
     except (IndexError, KeyError, ValueError):
         return render(request, '404.html', {'error': 'Product not found'})
 
     context = {
-        'object': object_data
+        'object': object_data,
+        'related_products': highlighted_products  # Bog'liq mahsulotlarni qo'shamiz
     }
     return render(request, 'product_detail.html', context)
