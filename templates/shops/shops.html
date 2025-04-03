@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/shops/shops.css' %}">
+
+    <div class="container">
+        <div class="section-header">
+            <h1>Moskva do‘konlarida aprel-may oylari uchun chegirmalar va aktsiyalar</h1>
+        </div>
+        <div class="retailers-section">
+            <div class="categories">
+                <ul>
+                    <li><a href="#" class="active" data-category="all">Hammasi</a></li>
+                    <li><a href="#" data-category="supermarkets">Supermarketlar</a></li>
+                    <li><a href="#" data-category="kids">Bolar do‘konlari</a></li>
+                    <li><a href="#" data-category="cosmetics">Kosmetika</a></li>
+                    <li><a href="#" data-category="alcohol">Spirtli ichimliklar do‘konlari</a></li>
+                    <li><a href="#" data-category="household">Uy-ro‘zg‘or buyumlari</a></li>
+                    <li><a href="#" data-category="electronics">Elektronika</a></li>
+                    <li><a href="#" data-category="fashion">Moda</a></li>
+                    <li><a href="#" data-category="books">Kitoblar</a></li>
+                    <li><a href="#" data-category="sports">Sport buyumlari</a></li>
+                    <li><a href="#" data-category="furniture">Mebel</a></li>
+                </ul>
+            </div>
+            <div class="store-grid" id="storeGrid">
+                <!-- Дўконлар -->
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #E30613;">
+                        <img src="https://edadeal.ru/static/retailers/pyaterochka.png" alt="Pyaterochka">
+                    </div>
+                    <h3 class="store-name">Pyaterochka</h3>
+                    <p class="discount-count">11733 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #00A550;">
+                        <img src="https://edadeal.ru/static/retailers/perekrestok.png" alt="Perekrestok">
+                    </div>
+                    <h3 class="store-name">Perekrestok</h3>
+                    <p class="discount-count">43307 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #E30613;">
+                        <img src="https://edadeal.ru/static/retailers/magnit.png" alt="Magnit">
+                    </div>
+                    <h3 class="store-name">Magnit</h3>
+                    <p class="discount-count">1642 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #008A3E;">
+                        <img src="https://edadeal.ru/static/retailers/spar.png" alt="Spar">
+                    </div>
+                    <h3 class="store-name">Spar supermarketlari</h3>
+                    <p class="discount-count">2590 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #FF6F00;">
+                        <img src="https://via.placeholder.com/80" alt="Dixie">
+                    </div>
+                    <h3 class="store-name">Dixie</h3>
+                    <p class="discount-count">5818 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #FFD700;">
+                        <img src="https://via.placeholder.com/80" alt="Chizhik">
+                    </div>
+                    <h3 class="store-name">Chizhik</h3>
+                    <p class="discount-count">1066 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #D3D3D3;">
+                        <img src="https://via.placeholder.com/80" alt="Tez">
+                    </div>
+                    <h3 class="store-name">Tez</h3>
+                    <p class="discount-count">10 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #FF6F00;">
+                        <img src="https://via.placeholder.com/80" alt="Globus">
+                    </div>
+                    <h3 class="store-name">Globus</h3>
+                    <p class="discount-count">1 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Super Lenta">
+                    </div>
+                    <h3 class="store-name">Super Lenta</h3>
+                    <p class="discount-count">1066 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #E30613;">
+                        <img src="https://via.placeholder.com/80" alt="Yaxshi Gipermarket">
+                    </div>
+                    <h3 class="store-name">Yaxshi Gipermarket</h3>
+                    <p class="discount-count">10298 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #003087;">
+                        <img src="https://via.placeholder.com/80" alt="Giper Lenta">
+                    </div>
+                    <h3 class="store-name">Giper Lenta</h3>
+                    <p class="discount-count">18290 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="supermarkets">
+                    <div class="store-logo" style="background-color: #00A550;">
+                        <img src="https://via.placeholder.com/80" alt="VkusVill">
+                    </div>
+                    <h3 class="store-name">VkusVill</h3>
+                    <p class="discount-count">6233 ta aktsiya</p>
+                </div>
+                <!-- Qo‘shimcha do‘konlar -->
+                <div class="store-card" data-category="cosmetics">
+                    <div class="store-logo" style="background-color: #FF6F61;">
+                        <img src="https://via.placeholder.com/80" alt="Cosmetics Store">
+                    </div>
+                    <h3 class="store-name">Cosmetics Store</h3>
+                    <p class="discount-count">500 ta aktsiya</p>
+                </div>
+                <div class="store-card" data-category="kids">
+                    <div class="store-logo" style="background-color: #FFD700;">
+                        <img src="https://via.placeholder.com/80" alt="Kids Store">
+                    </div>
+                    <h3 class="store-name">Kids Store</h3>
+                    <p class="discount-count">300 ta aktsiya</p>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <button id="prevPage" disabled><i class="fas fa-chevron-left"></i></button>
+            <div id="pageNumbers"></div>
+            <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+<script src="{% static 'js/shops/shops.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product/product.css' %}">
+    <div class="container">
+        <!-- Title Section -->
+        <h1>Скидки и акции магазина Магнит на Апрель–Май 2025 — Москва</h1>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar (Categories) -->
+            <aside class="sidebar">
+                <h2>Категории</h2>
+                <a href="#" class="category-item">Продукты</a>
+                <a href="#" class="category-item">Для дома</a>
+                <a href="#" class="category-item">Косметика и гигиена</a>
+                <a href="#" class="category-item">Для детей</a>
+                <a href="#" class="category-item">Зоотовары</a>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+
+                <!-- Filters Section -->
+                <div class="filters-section">
+                    <div class="filters-left">
+                        <div class="filter-item">
+                            <select>
+                                <option>Бренды</option>
+                                <option>Магнит</option>
+                                <option>Перекресток</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="discount-only">
+                            <label for="discount-only">Только со скидкой</label>
+                        </div>
+                    </div>
+                    <div class="filters-right">
+                        <div class="sort-options">
+                            <select>
+                                <option>По умолчанию</option>
+                                <option>По цене (возрастанию)</option>
+                                <option>По цене (убыванию)</option>
+                                <option>По популярности</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <section class="products">
+                    <div class="product-grid">
+                        <!-- Row 1 -->
+                        <div class="product-card">
+                            <div class="discount">По 10</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Укроп обыкновенный</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 15 АПР</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Пельмени алтайские товары</div>
+                            <div class="availability green">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 10</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Масло оливковое Borges</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 15 АПР</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 4</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <!-- Row 2 -->
+                        <div class="product-card">
+                            <div class="discount">По 10</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 5</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 15 АПР</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 6</div>
+                            <div class="availability green">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 10</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 7</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 15 АПР</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 8</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <!-- Row 3 -->
+                        <div class="product-card">
+                            <div class="discount">По 10</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 9</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 15 АПР</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 10</div>
+                            <div class="availability green">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 10</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 11</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 15 АПР</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 12</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <!-- Row 4 -->
+                        <div class="product-card">
+                            <div class="discount">По 10</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 13</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 15 АПР</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 14</div>
+                            <div class="availability green">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 10</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 15</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                        <div class="product-card">
+                            <div class="discount">По 15 АПР</div>
+                            <img src="https://via.placeholder.com/150" alt="Product Image">
+                            <div class="product-name">Продукт 16</div>
+                            <div class="availability">Да, мне есть 18</div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+{% endblock %}

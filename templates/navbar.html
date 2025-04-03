@@ -1,24 +1,23 @@
-{% load static %}
-<!-- NAVIGATION -->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="{% url 'main:index' %}">Home</a></li>
-<!--                <li><a href="#">Hot Deals</a></li>-->
-<!--                <li><a href="#">Categories</a></li>-->
-<!--                <li><a href="#">Laptops</a></li>-->
-<!--                <li><a href="#">Smartphones</a></li>-->
-<!--                <li><a href="#">Cameras</a></li>-->
-<!--                <li><a href="#">Accessories</a></li>-->
-            </ul>
-            <!-- /NAV -->
+    <header>
+        <div class=" header-container">
+            <div class="logo">
+                <i class="fas fa-frog"></i> Едадил
+            </div>
+            <nav class="main-nav">
+                <a href="#">Скидки</a>
+                <a href="#">Кешбэк</a>
+                <a href="#">Купоны</a>
+                <a href="#">Магазины</a>
+                <a href="#">Хурал</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск акций" id="search-input">
+                <button class="search-icon"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="user-actions">
+                <button class="location-btn" title="Местоположение"><i class="fas fa-map-marker-alt"></i></button>
+                <button class="theme-btn" title="Сменить тему"><i class="fas fa-sun"></i></button>
+                <button class="login-btn">Войти</button>
+            </div>
         </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
+    </header>

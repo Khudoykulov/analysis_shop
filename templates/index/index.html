@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/index/index.css' %}">
+    <main>
+        <div class="container">
+            <div class="section-header">
+                <h1>Лучшие магазины со скидками, Москва</h1>
+                <a href="#" class="view-all">Смотреть все <i class="fas fa-chevron-right"></i></a>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active">пктебл</button>
+                <button class="tab">Детские магазины</button>
+                <button class="tab">Косметика</button>
+                <button class="tab">Алкогольные магазины</button>
+                <button class="tab">Товары для дома</button>
+                <button class="tab">Фиксированная цена</button>
+                <button class="tab dropdown">
+                    Показать ещё <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <div class="store-grid" id="store-grid">
+                <div class="store-card">
+                    <div class="store-logo" style="background-color: #e30613;">
+                        <span>МАГНИТ</span>
+                    </div>
+                    <p class="store-name">Магнит</p>
+                    <p class="discount-count">1536 акций</p>
+                </div>
+                <div class="store-card">
+                    <div class="store-logo" style="background-color: #008000;">
+                        <span>Перекрёсток</span>
+                    </div>
+                    <p class="store-name">Перекрёсток</p>
+                    <p class="discount-count">4334 акций</p>
+                </div>
+                <div class="store-card">
+                    <div class="store-logo" style="background-color: #e30613;">
+                        <span>Пятёрочка</span>
+                    </div>
+                    <p class="store-name">Пятёрочка</p>
+                    <p class="discount-count">11977 акций</p>
+                </div>
+                <div class="store-card">
+                    <div class="store-logo" style="background-color: #008000;">
+                        <span>SPAR Супермаркет</span>
+                    </div>
+                    <p class="store-name">Spar Супермаркет</p>
+                    <p class="discount-count">2269 акций</p>
+                </div>
+                <div class="store-card">
+                    <div class="store-logo" style="background-color: #f5a623;">
+                        <span>ДИКСИ</span>
+                    </div>
+                    <p class="store-name">Дикси</p>
+                    <p class="discount-count">5793 акций</p>
+                </div>
+                <div class="store-card">
+                    <div class="store-logo" style="background-color: #ffeb3b;">
+                        <span>Чижик</span>
+                    </div>
+                    <p class="store-name">Чижик</p>
+                    <p class="discount-count">1134 акций</p>
+                </div>
+            </div>
+
+            <!-- New Discounts by Categories Section -->
+            <div class="section-header">
+                <h1>Скидки в категориях</h1>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Продукты">
+                    <p class="category-name">Продукты</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Алкоголь">
+                    <p class="category-name">Алкоголь</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Для дома">
+                    <p class="category-name">Для дома</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Косметика и гигиена">
+                    <p class="category-name">Косметика и гигиена</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Для детей">
+                    <p class="category-name">Для детей</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Зоотовары">
+                    <p class="category-name">Зоотовары</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Канцтовары">
+                    <p class="category-name">Канцтовары</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Фастфуд">
+                    <p class="category-name">Фастфуд</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Авто">
+                    <p class="category-name">Авто</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Досуг и хобби">
+                    <p class="category-name">Досуг и хобби</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Книги">
+                    <p class="category-name">Книги</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Компьютеры">
+                    <p class="category-name">Компьютеры</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Спорт и отдых">
+                    <p class="category-name">Спорт и отдых</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Строительство">
+                    <p class="category-name">Строительство</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Обурование">
+                    <p class="category-name">Обурование</p>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

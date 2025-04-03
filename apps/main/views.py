@@ -58,7 +58,7 @@ def index(request):
     categories = list(set(laptop.get('Category', '') for laptop in laptops))
     categories = ['All Categories'] + sorted(categories)
 
-    return render(request, 'index.html', {
+    return render(request, 'index/index.html', {
         'laptops': page_obj.object_list,
         'paginator': paginator,
         'page_obj': page_obj,
@@ -72,6 +72,11 @@ def index(request):
 class Home(TemplateView):
     template_name = 'login.html'
 
+class Shops(TemplateView):
+    template_name = 'shops/shops.html'
+
+class Product(TemplateView):
+    template_name = 'product/product.html'
 
 def product_detail(request, pk):
     file_path = os.path.join(settings.BASE_DIR, 'data', 'data.csv')

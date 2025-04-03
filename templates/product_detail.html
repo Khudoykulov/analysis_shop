@@ -3,290 +3,506 @@
 
 {% block content %}
 <style>
-    /* styles.css */
-.detail_body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-}
 
-.main_wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Header Styles */
+header {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-h1, h2, h3 {
-    color: #333;
-}
-
-h1 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 1.3em;
-    margin-bottom: 15px;
-}
-
-h3 {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-}
-
-/* Product Overview Section */
-.item_summary {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.item_image_box img {
-    width: 150px;
-    height: auto;
-    border-radius: 5px;
-}
-
-.item_info_block {
-    flex: 2;
-}
-
-.price_section {
+.header-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 5px;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.current_price_tag {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
 }
 
-.best_price_label {
+.logo i {
+    color: #28a745;
+    margin-right: 10px;
+    font-size: 30px;
+    transition: transform 0.3s;
+}
+
+.logo:hover i {
+    transform: rotate(20deg);
+}
+
+.main-nav {
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #28a745;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.main-nav a:hover {
+    color: #28a745;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 450px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 15px;
+    background-color: #f5f5f5;
+    transition: all 0.3s;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #28a745;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.2);
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.search-bar .search-icon:hover {
+    color: #28a745;
+}
+
+.user-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.user-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.user-actions button:hover {
+    color: #28a745;
+    transform: scale(1.1);
+}
+
+.login-btn {
     background-color: #28a745;
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9em;
-}
-
-.price_timestamp {
-    color: #666;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-}
-
-.item_metadata p {
-    margin: 5px 0;
-    color: #555;
-}
-
-.view_amazon_link {
-    display: inline-block;
-    background-color: #f0c14b;
-    color: #111;
     padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 10px;
-    text-align: center;
-    width: 100%;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.price_alert_box {
-    flex: 1;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
+.login-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
 }
 
-.add_price_alert_btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%; /* Added to make the button full-width like in the image */
-}
-
-/* Price History Section */
-.price_tracker {
-    margin-bottom: 30px;
-}
-
-.price_tracker p {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.time_tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.time_tab {
-    background-color: #eee;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.time_tab.active {
-    background-color: #333;
-    color: #fff;
-}
-
-.price_filters {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 15px;
-}
-
-.price_filters label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.price_graph {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    min-height: 200px;
-}
-
-/* Product Details Section */
-.item_specs {
-    margin-bottom: 30px;
-}
-
-.specs_list {
-    width: 100%;
-}
-
-.spec_row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.spec_row:nth-child(odd) {
-    background-color: #f9f9f9;
-}
-
-.spec_label {
-    font-weight: bold;
-    color: #555;
-    flex: 1;
-}
-
-.spec_value {
-    color: #333;
-    flex: 2;
-    text-align: right;
-}
-
-.spec_row:last-child {
-    border-bottom: none;
-}
-    .stock_status {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
-    margin: 10px 0;
-}
-
-.third_party_price {
-    margin: 5px 0;
-    color: #555;
-}
-
-.third_party_price_label {
-    font-weight: bold;
-    color: #333;
-}
-
-.third_party_price_value {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
-    margin-left: 5px;
-}
-
-.third_party_timestamp {
-    color: #666;
-    font-size: 0.9em;
-}
-
-
-
-
-
-
-
-
-
-.highlighted-deals {
-        padding: 20px;
-        font-family: Arial, sans-serif;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', Arial, sans-serif;
     }
 
-    .highlighted-deals h2 {
-        font-size: 24px;
-        color: #1a73e8;
+    .detail_body {
+        background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+        padding: 30px;
+        min-height: 100vh;
+    }
+
+    .main_wrapper {
+        max-width: 1300px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0;
+    }
+
+    h1, h2, h3 {
+        color: #2c3e50;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 1.6em;
         margin-bottom: 20px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: #1a73e8;
+        border-radius: 2px;
+    }
+
+    h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+
+    /* Product Overview Section */
+    .item_summary {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 40px;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .item_image_box img {
+        width: 180px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .item_image_box img:hover {
+        transform: scale(1.05);
+    }
+
+    .item_info_block {
+        flex: 2;
+    }
+
+    .price_section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 10px;
+    }
+
+    .current_price_tag {
+        font-size: 1.8em;
         font-weight: bold;
+        color: #e74c3c;
+    }
+
+    .best_price_label {
+        background: #28a745;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 500;
+    }
+
+    .stock_status {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #2c3e50;
+        margin: 10px 0;
+    }
+
+    .third_party_price {
+        margin: 8px 0;
+        color: #555;
+    }
+
+    .third_party_price_label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .third_party_price_value {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #e74c3c;
+        margin-left: 5px;
+    }
+
+    .item_metadata p {
+        margin: 8px 0;
+        color: #666;
+        font-size: 0.95em;
+    }
+
+    .view_amazon_link {
+        display: inline-block;
+        background: linear-gradient(90deg, #f0c14b, #e0b33a);
+        color: #111;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        margin-top: 15px;
+        text-align: center;
+        width: 100%;
+        transition: background 0.3s ease;
+    }
+
+    .view_amazon_link:hover {
+        background: linear-gradient(90deg, #e0b33a, #f0c14b);
+    }
+
+    /* Store Prices Section */
+    .store-prices {
+        margin-bottom: 50px;
+    }
+
+    .price-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .price-item {
+        background: #fff;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .price-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .price-item img {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+    }
+
+    .price-item h3 {
+        font-size: 1.2em;
+        color: #2c3e50;
+        font-weight: 600;
+    }
+
+    .price-item .current-price {
+        font-size: 1.6em;
+        font-weight: bold;
+        color: #e74c3c;
+    }
+
+    .price-item .discount {
+        color: #ff0000;
+        font-size: 1em;
+        font-weight: 500;
+        background: #ffe6e6;
+        padding: 3px 8px;
+        border-radius: 10px;
+    }
+
+    .price-item .old-price {
+        font-size: 1em;
+        color: #888;
+        text-decoration: line-through;
+    }
+
+    .price-item .availability {
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    .price-item .order-btn {
+        background: linear-gradient(90deg, #007bff, #0056b3);
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 15px;
+        font-weight: 500;
+        transition: background 0.3s ease;
+    }
+
+    .price-item .order-btn:hover {
+        background: linear-gradient(90deg, #0056b3, #007bff);
+    }
+
+    /* Pagination */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .pagination a {
+        padding: 10px 18px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .pagination a:hover {
+        background: #f0f0f0;
+        border-color: #bbb;
+    }
+
+    .pagination a.active {
+        background: #28a745;
+        color: #fff;
+        border-color: #28a745;
+    }
+
+    /* Related Products Section */
+    .related-products {
+        margin-bottom: 50px;
+    }
+
+    .related-items {
+        display: flex;
+        gap: 25px;
+        overflow-x: auto;
+        padding-bottom: 15px;
+    }
+
+    .related-item {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        min-width: 220px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .related-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .related-item img {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 12px;
+    }
+
+    .related-item p {
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    /* Highlighted Deals Section */
+    .highlighted-deals {
+        padding: 30px 0;
     }
 
     .deals-container {
         display: flex;
-        gap: 20px;
+        gap: 25px;
         overflow-x: auto;
-        padding-bottom: 10px;
+        padding-bottom: 15px;
     }
 
     .deal-card {
         position: relative;
         background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        width: 220px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        width: 240px;
         text-align: center;
-        padding: 15px;
+        padding: 20px;
         flex: 0 0 auto;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .deal-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     }
 
     .deal-label {
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 15px;
+        left: 15px;
         background: #28a745;
         color: #fff;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 12px;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.85em;
         font-weight: bold;
     }
 
     .deal-image img {
         max-width: 100%;
         height: auto;
-        border-radius: 5px;
+        border-radius: 8px;
+        margin-bottom: 15px;
     }
 
     .deal-info {
@@ -294,209 +510,360 @@ h3 {
     }
 
     .deal-name {
-        font-size: 14px;
-        color: #333;
+        font-size: 0.95em;
+        color: #2c3e50;
         margin: 10px 0;
-        line-height: 1.4;
+        line-height: 1.5;
+        font-weight: 500;
     }
 
     .deal-price {
-        font-size: 16px;
-        color: #e67e22;
+        font-size: 1.1em;
+        color: #e74c3c;
         font-weight: bold;
         margin: 5px 0;
     }
 
     .deal-avg-price {
-        font-size: 12px;
+        font-size: 0.85em;
         color: #777;
         margin: 5px 0;
     }
 
     .deal-button {
         display: inline-block;
-        background: #f0c14b;
+        background: linear-gradient(90deg, #f0c14b, #e0b33a);
         color: #111;
-        padding: 8px 15px;
-        border-radius: 5px;
+        padding: 10px 20px;
+        border-radius: 25px;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 0.9em;
         font-weight: bold;
-        margin-top: 10px;
-        transition: background 0.3s;
+        margin-top: 15px;
+        transition: background 0.3s ease;
     }
 
     .deal-button:hover {
-        background: #e0b33a;
+        background: linear-gradient(90deg, #e0b33a, #f0c14b);
     }
 
-    /* Scrollbar styling (agar kerak bo'lsa) */
+    /* Scrollbar Styling */
+    .related-items::-webkit-scrollbar,
     .deals-container::-webkit-scrollbar {
         height: 8px;
     }
 
+    .related-items::-webkit-scrollbar-thumb,
     .deals-container::-webkit-scrollbar-thumb {
         background: #ccc;
         border-radius: 4px;
     }
+
+    .related-items::-webkit-scrollbar-thumb:hover,
+    .deals-container::-webkit-scrollbar-thumb:hover {
+        background: #aaa;
+    }
+    /* Footer Styles */
+footer {
+    background-color: #DDE1E4;
+    padding: 20px;
+}
+
+.show-more {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.show-more button {
+    background-color: #E0E0E0;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.show-more button:hover {
+    background-color: #D0D4D8;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.column h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column ul li {
+    margin-bottom: 8px;
+}
+
+.column ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.column ul li a:hover {
+    color: #007bff;
+}
+
+.footer-bottom {
+    text-align: left;
+    font-size: 12px;
+    color: #666;
+    max-width: 1200px;
+    margin: 20px auto 0;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ddd;
+}
+
+body.dark-mode header {
+    background-color: #2c2c2c;
+}
+
+body.dark-mode .logo,
+body.dark-mode .main-nav a,
+body.dark-mode .section-header h1,
+body.dark-mode .store-name,
+body.dark-mode .category-name {
+    color: #ddd;
+}
+
+body.dark-mode .store-card,
+body.dark-mode .category-card {
+    background-color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .discount-count {
+    color: #aaa;
+}
+
+body.dark-mode .tab {
+    background-color: #444;
+    border-color: #555;
+    color: #ddd;
+}
+
+body.dark-mode .tab.active {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+body.dark-mode .tab:hover {
+    background-color: #555;
+}
+
+body.dark-mode .search-bar input {
+    background-color: #444;
+    border-color: #555;
+    color: #ddd;
+}
+
+body.dark-mode .search-bar input:focus {
+    background-color: #555;
+    border-color: #28a745;
+}
+
+/* Dark Mode for Footer */
+body.dark-mode footer {
+    background-color: #2A2A2A;
+}
+
+body.dark-mode .show-more button {
+    background-color: #444;
+    color: #E0E0E0;
+}
+
+body.dark-mode .show-more button:hover {
+    background-color: #555;
+}
+
+body.dark-mode .column h3 {
+    color: #E0E0E0;
+}
+
+body.dark-mode .column ul li a {
+    color: #B0B0B0;
+}
+
+body.dark-mode .column ul li a:hover {
+    color: #66B0FF;
+}
+
+body.dark-mode .footer-bottom {
+    color: #A0A0A0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        text-align: center;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+}
 </style>
-<body class="detail_body">
-<div class="main_wrapper">
-    <!-- Product Overview Section -->
-    <!-- Product Overview Section -->
-    <div class="item_summary">
-        <div class="item_image_box">
-            <img src="{{ object.Image_URL }}" alt="Product Image">
-        </div>
-        <div class="item_info_block">
-            <h1>{{object.Name}}</h1>
-            <div class="price_section">
-                <span class="current_price_tag">${{ object.discounted_price|floatformat:2 }}</span>
-                <span class="best_price_label">{{object.Discount|floatformat:2}}% chegirma</span>
+<div class="detail_body">
+    <div class="main_wrapper">
+        <!-- Product Overview Section -->
+        <div class="item_summary">
+            <div class="item_image_box">
+                <img src="{{ object.Image_URL }}" alt="Product Image">
             </div>
-            <!--        <p class="price_timestamp">Amazon Price as of Mar 20, 2025 12:40 AM</p>-->
-            <div class="stock_status">Sotuvda {{object.Sold_count}} ta bor</div>
-            <div class="third_party_price">
-                <span class="third_party_price_label"> Narx: </span>
-                <span class="third_party_price_value">${{ object.Price|floatformat:2 }}</span>
-            </div>
-            <!--        <p class="third_party_timestamp">as of Mar 18, 2025 06:28 PM</p>-->
-            <div class="item_metadata">
-                <p><strong>BRAND:</strong> {{object.Brand}}</p>
-                <p><strong>Model:</strong> {{object.Model}}</p>
-                <p><strong>Manufacturer:</strong> {{object.shop_name}}</p>
-                <!--            <p><strong>EAN:</strong> 084033234236</p>-->
-                <!--            <p><strong>Product group:</strong> Lawn & Patio</p>-->
-                <p><strong>Category:</strong> {{object.Category}}</p>
-                <p><strong>Description:</strong> {{object.Description}}</p>
-            </div>
-            <a href="{{ object.Website }}" class="view_amazon_link" target="_blank" rel="noopener noreferrer">
-                View at Web-Site
-            </a>
-        </div>
-        <div class="price_alert_box">
-            <h3>Nimadir qushish kerak shu joyga</h3>
-            <p>We'll notify you when the price drops to your desired price.</p>
-            <button class="add_price_alert_btn">+ hali aniqmas</button>
-        </div>
-    </div>
-
-    <!-- Price History Section -->
-    <div class="price_tracker">
-        <h2>Amazon Price History</h2>
-        <p>This is our record of Amazon price changes for YITAHOME NSF Stainless Steel Table, 30" X 24" Work Table with
-            Wheels, 2 Shelves Metal Prep Worktable for Home Kitchen Restaurant Garage Warehouse Outdoor (B0CBQ2FN1G)
-            since Nov 20, 2023.</p>
-        <div class="time_tabs">
-            <button class="time_tab active" data-tab="1-month">1 Month</button>
-            <button class="time_tab" data-tab="3-month">3 Months</button>
-            <button class="time_tab" data-tab="6-month">6 Months</button>
-            <button class="time_tab" data-tab="1-year">1 Year</button>
-            <button class="time_tab" data-tab="all">All</button>
-        </div>
-        <div class="price_filters">
-            <label><input type="checkbox" checked> Amazon</label>
-            <label><input type="checkbox"> New</label>
-            <label><input type="checkbox"> Used</label>
-        </div>
-        <div class="price_graph">
-            <!-- Placeholder for price chart -->
-            <p>Price chart will be displayed here (e.g., using a library like Chart.js).</p>
-        </div>
-    </div>
-
-    <!-- Product Details Section -->
-    <div class="item_specs">
-        <h2>Product Details</h2>
-        <div class="specs_list">
-            <div class="spec_row">
-                <span class="spec_label">Category</span>
-                <span class="spec_value">{{object.Category}}</span>
-            </div>
-            <div class="spec_row">
-                <span class="spec_label">Web-Site:</span>
-                <span class="spec_value">{{object.shop_name}}</span>
-            </div>
-            <div class="spec_row">
-                <span class="spec_label">Model:</span>
-                <span class="spec_value">{{object.Model}}</span>
-            </div>
-            <div class="spec_row">
-                <span class="spec_label">Brand:</span>
-                <span class="spec_value">{{object.Brand}}</span>
-            </div>
-            <div class="spec_row">
-                <span class="spec_label">Narx:</span>
-                <span class="spec_value">${{object.Price|floatformat:2}}</span>
-            </div>
-            <div class="spec_row">
-                <span class="spec_label">Chegirma:</span>
-                <span class="spec_value">{{object.Discount|floatformat:2}}%</span>
-            </div>
-            <div class="spec_row">
-                <span class="spec_label">Chegirmadagi narxi:</span>
-                <span class="spec_value">${{object.discounted_price|floatformat:2}}</span>
-            </div>
-            <!--            <div class="spec_row">-->
-            <!--                <span class="spec_label">Last update scan</span>-->
-            <!--                <span class="spec_value">3 hours ago</span>-->
-            <!--            </div>-->
-            <!--            <div class="spec_row">-->
-            <!--                <span class="spec_label">Last tracked</span>-->
-            <!--                <span class="spec_value">1 month ago</span>-->
-            <!--            </div>-->
-        </div>
-    </div>
-
-    <div class="highlighted-deals">
-        <h2>Highlighted Deals</h2>
-        <div class="deals-container">
-            {% for product in related_products %}
-            <div class="deal-card">
-                {% if product.label %}
-                <span class="deal-label">{{ product.label }}</span>
-                {% endif %}
-                <div class="deal-image">
-                    <img src="{{ product.Image_URL }}" alt="{{ product.Name }}">
+            <div class="item_info_block">
+                <h1>{{ object.Name }}</h1>
+                <div class="price_section">
+                    <span class="current_price_tag">${{ object.discounted_price|floatformat:2 }}</span>
+                    <span class="best_price_label">{{ object.Discount|floatformat:2 }}% chegirma</span>
                 </div>
-                <div class="deal-info">
-                    <h3 class="deal-name">{{ product.Name|slice:":50" }}</h3>
-                    <p class="deal-price">${{ product.Price|floatformat:2 }}</p>
-                    <p class="deal-avg-price">AVG: ${{ product.Avg_Price|floatformat:2 }}</p>
-                    <a href="{{ product.Website }}" target="_blank" class="deal-button">View at Amazon</a>
+                <div class="stock_status">Sotuvda {{ object.Sold_count }} ta bor</div>
+                <div class="third_party_price">
+                    <span class="third_party_price_label">Narx:</span>
+                    <span class="third_party_price_value">${{ object.Price|floatformat:2 }}</span>
+                </div>
+                <div class="item_metadata">
+                    <p><strong>BRAND:</strong> {{ object.Brand }}</p>
+                    <p><strong>Model:</strong> {{ object.Model }}</p>
+                    <p><strong>Manufacturer:</strong> {{ object.shop_name }}</p>
+                    <p><strong>Category:</strong> {{ object.Category }}</p>
+                    <p><strong>Description:</strong> {{ object.Description }}</p>
+                </div>
+                <a href="{{ object.Website }}" class="view_amazon_link" target="_blank" rel="noopener noreferrer">
+                    View at Web-Site
+                </a>
+            </div>
+        </div>
+
+        <!-- Store Prices Section -->
+        <section class="store-prices">
+            <h2>Цены в магазинах</h2>
+            <div class="price-list">
+                <div class="price-item">
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://via.placeholder.com/24" alt="Store Logo">
+                        <h3>МАГНИТ ЭКСТРА</h3>
+                    </div>
+                    <div>
+                        <span class="current-price">899.99 ₽</span>
+                        <span class="discount">-44%</span>
+                    </div>
+                    <div>
+                        <span class="old-price">1 799.98 ₽/л</span>
+                    </div>
+                    <div class="availability">500 мл ~ 1 799.98 ₽/л</div>
+                    <div class="availability">По 15 апр.</div>
+                </div>
+                <div class="price-item">
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://via.placeholder.com/24" alt="Store Logo">
+                        <h3>МАГНИТ</h3>
+                    </div>
+                    <div>
+                        <span class="current-price">от 899.99 до 944.99 ₽</span>
+                    </div>
+                    <div class="availability">500 мл ~ 1 799.98 ₽/л</div>
+                    <div class="availability">По 15 апр.</div>
+                </div>
+                <div class="price-item">
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://via.placeholder.com/24" alt="Store Logo">
+                        <h3>Перекресток</h3>
+                    </div>
+                    <div>
+                        <span class="current-price">от 1149 до 1439 ₽</span>
+                    </div>
+                    <div class="availability">500 мл ~ 2 298 ₽/л</div>
+                    <div class="availability">Последний день</div>
+                </div>
+                <div class="price-item">
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://via.placeholder.com/24" alt="Store Logo">
+                        <h3>Билла</h3>
+                    </div>
+                    <div>
+                        <span class="current-price">1050 ₽</span>
+                    </div>
+                    <div class="availability">500 мл ~ 2 100 ₽/л</div>
+                    <a href="#" class="order-btn">Заказать</a>
                 </div>
             </div>
-            {% empty %}
-            <p>No highlighted deals available.</p>
-            {% endfor %}
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+            </div>
+        </section>
+
+        <!-- Related Products Section -->
+
+        <!-- Highlighted Deals Section -->
+        <div class="highlighted-deals">
+            <h2>Highlighted Deals</h2>
+            <div class="deals-container">
+                {% for product in related_products %}
+                <div class="deal-card">
+                    {% if product.label %}
+                    <span class="deal-label">{{ product.label }}</span>
+                    {% endif %}
+                    <div class="deal-image">
+                        <img src="{{ product.Image_URL }}" alt="{{ product.Name }}">
+                    </div>
+                    <div class="deal-info">
+                        <h3 class="deal-name">{{ product.Name|slice:":50" }}</h3>
+                        <p class="deal-price">${{ product.Price|floatformat:2 }}</p>
+                        <p class="deal-avg-price">AVG: ${{ product.Avg_Price|floatformat:2 }}</p>
+                        <a href="{{ product.Website }}" target="_blank" class="deal-button">View at Amazon</a>
+                    </div>
+                </div>
+                {% empty %}
+                <p>No highlighted deals available.</p>
+                {% endfor %}
+            </div>
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+            </div>
         </div>
     </div>
-
 </div>
-<script>
-    // script.js
-document.querySelectorAll('.time_tab').forEach(tab => {
-tab.addEventListener('click', () => {
-    // Remove active class from all tabs
-    document.querySelectorAll('.time_tab').forEach(t => t.classList.remove('active'));
-    // Add active class to clicked tab
-    tab.classList.add('active');
-
-    // Placeholder for updating the price chart based on the selected tab
-    const tabName = tab.getAttribute('data-tab');
-    console.log(`Switching to ${tabName} price history`);
-
-    // You can update the price chart here (e.g., using Chart.js)
-    // For now, we'll just log the tab change
-});
-});
-
-// Optional: Add interactivity for the "Add Amazon Price Watch" button
-document.querySelector('.add_price_alert_btn').addEventListener('click', () => {
-alert('Price watch added! You will be notified when the price drops.');
-});
-</script>
-</body>
-
-
 {% endblock %}
