@@ -11,153 +11,6 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header Styles */
-header {
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 28px;
-    font-weight: 700;
-    color: #2c3e50;
-}
-
-.logo i {
-    color: #28a745;
-    margin-right: 10px;
-    font-size: 30px;
-    transition: transform 0.3s;
-}
-
-.logo:hover i {
-    transform: rotate(20deg);
-}
-
-.main-nav {
-    display: flex;
-    gap: 25px;
-}
-
-.main-nav a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-size: 16px;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s;
-}
-
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #28a745;
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s;
-}
-
-.main-nav a:hover {
-    color: #28a745;
-}
-
-.main-nav a:hover::after {
-    width: 100%;
-}
-
-.search-bar {
-    flex: 1;
-    max-width: 450px;
-    position: relative;
-    transition: all 0.3s;
-}
-
-.search-bar input {
-    width: 100%;
-    padding: 12px 50px 12px 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 25px;
-    font-size: 15px;
-    background-color: #f5f5f5;
-    transition: all 0.3s;
-}
-
-.search-bar input:focus {
-    outline: none;
-    border-color: #28a745;
-    background-color: #fff;
-    box-shadow: 0 0 8px rgba(40, 167, 69, 0.2);
-}
-
-.search-bar .search-icon {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #666;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.search-bar .search-icon:hover {
-    color: #28a745;
-}
-
-.user-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.user-actions button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    color: #666;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.user-actions button:hover {
-    color: #28a745;
-    transform: scale(1.1);
-}
-
-.login-btn {
-    background-color: #28a745;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 15px;
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.login-btn:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
-}
-
 /* Main Content Styles */
 .container {
     max-width: 1300px;
@@ -200,17 +53,28 @@ header {
 .view-all:hover i {
     transform: translateX(5px);
 }
+/* Tabs Wrapper */
+.tabs-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Saytning to'liq eni */
+    margin-bottom: 30px;
+}
 
-/* Tabs Styles */
+/* Skroll qilinadigan tablar (80%) */
 .tabs {
     display: flex;
     gap: 12px;
-    overflow-x: auto;
-    margin-bottom: 30px;
+    overflow-x: auto; /* Faqat gorizontal skroll */
+    overflow-y: hidden; /* Vertikal skrollni o'chirish */
     white-space: nowrap;
     padding-bottom: 10px;
     scrollbar-width: thin;
     scrollbar-color: #28a745 #e0e0e0;
+    width: 80%; /* 80% kenglik */
+    box-sizing: border-box;
+    height: 60px; /* Konteyner balandligini belgilash */
+    align-items: center; /* Tablar vertikal markazlashtiriladi */
 }
 
 .tabs::-webkit-scrollbar {
@@ -227,6 +91,7 @@ header {
     border-radius: 10px;
 }
 
+/* Tablar stillari */
 .tab {
     background-color: #fff;
     border: 1px solid #e0e0e0;
@@ -236,14 +101,23 @@ header {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s;
+    flex-shrink: 0; /* Tablar kichrayib qolmasligi uchun */
+    height: 40px; /* Balandlikni bir xil qilish uchun */
+    line-height: 40px; /* Matnni vertikal markazlashtirish */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
+/* Active holat */
 .tab.active {
     background-color: #28a745;
     color: #fff;
     border-color: #28a745;
 }
 
+/* Hover holat */
 .tab:hover {
     background-color: #f0f0f0;
     border-color: #ccc;
@@ -254,8 +128,59 @@ header {
     border-color: #218838;
 }
 
+/* Dropdown konteyneri (15% kenglik, o'ngga surish uchun margin qo'shildi) */
+.dropdown-container {
+    position: relative;
+    width: 19%; /* Kenglikni 20% dan 15% ga kamaytirdik */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end; /* Tugmani o'ngga surish */
+    margin-left: 1%; /* Qolgan 5% bo'sh joy sifatida qoldiriladi */
+}
+
+/* Dropdown tugmasi */
+.dropdown {
+    width: 100%; /* Tugma 15% kenglikni to'liq egallaydi */
+    text-align: center;
+    padding: 10px 15px;
+}
+
 .dropdown i {
     margin-left: 8px;
+}
+
+/* Dropdown menyusi */
+.dropdown-menu {
+    display: none; /* Dastlab yashirin */
+    position: absolute;
+    top: 100%; /* Tablar ostida joylashadi */
+    right: 0; /* O'ng tomonda joylashadi */
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 10;
+    min-width: 200px;
+}
+
+/* Dropdown tugmasi yoki menyusi ustida sichqoncha bo'lganda ochiladi */
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown menyusi ichidagi tablar ustida sichqoncha bo'lganda ham ochiq qoladi */
+.dropdown-menu:hover {
+    display: block;
+}
+
+/* Dropdown ichidagi tablar vertikal joylashadi */
+.dropdown-menu .tab {
+    display: block;
+    margin: 5px 0;
+    border-radius: 10px;
+    text-align: center; /* Matnni markazlashtirish */
+    padding: 10px 15px; /* Chapdan va o'ngdan teng masofa */
 }
 
 /* Store Grid Styles */

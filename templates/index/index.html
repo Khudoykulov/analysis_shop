@@ -6,22 +6,32 @@
     <main>
         <div class="container">
             <div class="section-header">
-                <h1>Лучшие магазины со скидками, Москва</h1>
-                <a href="#" class="view-all">Смотреть все <i class="fas fa-chevron-right"></i></a>
+                <h1>Eng yaxshi chegirmali do'konlar, Toshkent</h1>
+                <a href="{% url 'main:shops' %}" class="view-all">Hammasini ko'rish <i class="fas fa-chevron-right"></i></a>
             </div>
 
-            <div class="tabs">
-                <button class="tab active">пктебл</button>
-                <button class="tab">Детские магазины</button>
-                <button class="tab">Косметика</button>
-                <button class="tab">Алкогольные магазины</button>
-                <button class="tab">Товары для дома</button>
-                <button class="tab">Фиксированная цена</button>
-                <button class="tab dropdown">
-                    Показать ещё <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-
+<div class="tabs-wrapper">
+    <!-- Skroll qilinadigan tablar (80%) -->
+    <div class="tabs">
+        <button class="tab active">Hammasi</button>
+        <button class="tab">Bolalar do'koni</button>
+        <button class="tab">Kosmetika</button>
+        <button class="tab">Supermarketlar</button>
+        <button class="tab">Uy-ro'zg'or buyumlari</button>
+        <button class="tab">Ruxsat etilgan narx</button>
+        <button class="tab">Uy hayvonlari uchun materiallar</button>
+    </div>
+    <!-- Hammasini ko'rish tugmasi (20%) -->
+    <div class="dropdown-container">
+        <button class="tab dropdown">
+            Ko'proq ko'rsatish <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="dropdown-menu">
+            <button class="tab">Dorixona</button>
+            <button class="tab">FastFood</button>
+        </div>
+    </div>
+</div>
             <div class="store-grid" id="store-grid">
                 <div class="store-card">
                     <div class="store-logo" style="background-color: #e30613;">
@@ -69,70 +79,71 @@
 
             <!-- New Discounts by Categories Section -->
             <div class="section-header">
-                <h1>Скидки в категориях</h1>
+                <h1>Kategoriyalarda chegirmalar</h1>
             </div>
             <div class="category-grid">
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Продукты">
-                    <p class="category-name">Продукты</p>
+                    <p class="category-name">Kosmetika</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Алкоголь">
-                    <p class="category-name">Алкоголь</p>
+                    <p class="category-name">Bolalar uchun </p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Для дома">
-                    <p class="category-name">Для дома</p>
+                    <p class="category-name">Kitoblar</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Косметика и гигиена">
-                    <p class="category-name">Косметика и гигиена</p>
+                    <p class="category-name">Kosmetika va gigiena</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Для детей">
-                    <p class="category-name">Для детей</p>
+                    <p class="category-name">Avtomatik</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Зоотовары">
-                    <p class="category-name">Зоотовары</p>
+                    <p class="category-name">Elektronika</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Канцтовары">
-                    <p class="category-name">Канцтовары</p>
+                    <p class="category-name">Kiyim, poyabzal va aksessuarlar</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Фастфуд">
-                    <p class="category-name">Фастфуд</p>
+                    <p class="category-name">Maishiy texnika</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Авто">
-                    <p class="category-name">Авто</p>
+                    <p class="category-name">Avto</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Досуг и хобби">
-                    <p class="category-name">Досуг и хобби</p>
+                    <p class="category-name">Sog'liqni saqlash mahsulotlari</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Книги">
-                    <p class="category-name">Книги</p>
+                    <p class="category-name">Gullar, guldastalar, kompozitsiyalar</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Компьютеры">
-                    <p class="category-name">Компьютеры</p>
+                    <p class="category-name">Kompyuter uskunalari</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Спорт и отдых">
-                    <p class="category-name">Спорт и отдых</p>
+                    <p class="category-name">Uy hayvonlari uchun materiallar</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Строительство">
-                    <p class="category-name">Строительство</p>
+                    <p class="category-name">Sport va dam olish</p>
                 </div>
                 <div class="category-card">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Обурование">
-                    <p class="category-name">Обурование</p>
+                    <p class="category-name">Mahsulotlar</p>
                 </div>
             </div>
         </div>
     </main>
+<script src="{% static 'js/index/index.js' %}"></script>
 {% endblock %}

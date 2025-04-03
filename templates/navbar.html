@@ -1,23 +1,22 @@
     <header>
         <div class=" header-container">
             <div class="logo">
-                <i class="fas fa-frog"></i> Едадил
+                <i class="fas fa-frog"></i>  UZSALE
             </div>
             <nav class="main-nav">
-                <a href="#">Скидки</a>
-                <a href="#">Кешбэк</a>
-                <a href="#">Купоны</a>
-                <a href="#">Магазины</a>
-                <a href="#">Хурал</a>
+                <a href="{% url 'main:index' %}">Chegirmalar</a>
+                <a href="#">Keshbek</a>
+                <a href="#">Kuponlar</a>
+                <a href="{% url 'main:shops' %}">Dukonlar</a>
             </nav>
             <div class="search-bar">
-                <input type="text" placeholder="Поиск акций" id="search-input">
+                <input type="text" placeholder="Aksiyalarni qidirish" id="search-input">
                 <button class="search-icon"><i class="fas fa-search"></i></button>
             </div>
             <div class="user-actions">
                 <button class="location-btn" title="Местоположение"><i class="fas fa-map-marker-alt"></i></button>
                 <button class="theme-btn" title="Сменить тему"><i class="fas fa-sun"></i></button>
-                <button class="login-btn">Войти</button>
+                <button class="login-btn"><a href="{% url 'account:login' %}">Tizimga kirish</a></button>
             </div>
         </div>
     </header>
